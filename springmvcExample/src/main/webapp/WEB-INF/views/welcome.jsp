@@ -12,5 +12,8 @@
 </head>
 <body>
 <h2>Welcome!</h2>
+<h2>用户名：${username}</h2><br/>
+<h2>用户名(没有存储key)：${string}</h2><br/>
+<h2>map(最好给key，不然找不到)：map.rwj</h2>
 </body>
 </html>

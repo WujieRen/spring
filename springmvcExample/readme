@@ -35,7 +35,9 @@ process:
                 prefix
                 suffix
                 【这里可以对比参考pdf中的MVC框架模型来理解。这里用了注解就不用用ModelAndView了，更简便。】
-
         ③参数传递
            Ⅰ@RequestParam：必须传
            Ⅱ直接通过方法参数传值：可传可不传
+        ④在上个例子的基础上，将参数显示在页面上
+            Map<String, Object>【一般不用】
+            Model【常用】
