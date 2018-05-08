@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WelcomeController {
     @RequestMapping({"/welcome", "/wel"})
-    public String welcome() {
+    /*public String welcome(@RequestParam String username) {*/
+    public String welcome(String username) {
         System.out.println("Welcome");
+        System.out.println(username);
         return "welcome";
     }
 }
