@@ -13,6 +13,6 @@ public class HelloController extends AbstractController {
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         System.out.println("Hello Controller");
-        return null;
+        return new ModelAndView("welcome");
     }
 }

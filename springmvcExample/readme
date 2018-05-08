@@ -28,5 +28,11 @@ process:
             SimpleUrlHandlerMapping
             ControllerClassNameHandlerMapping
             DefaultAnnotationHandlerMapping——弃用，改为将请求映射使用@RequestMapping注解的控制器和控制方法
-
+        ②视图解析器
+            将逻辑视图的名字与jsp页面进行匹配
+            InternalResourceViewResolver
+                在web应用程序的war文件中查找视图模板，视图模板的路径根据加完前缀和后缀的逻辑视图名称来确定
+                prefix
+                suffix
+                【这里可以对比参考pdf中的MVC框架模型来理解。这里用了注解就不用用ModelAndView了，更简便。】
 

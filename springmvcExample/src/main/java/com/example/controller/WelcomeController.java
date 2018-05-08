@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class WelcomeController {
-    @RequestMapping({"welcome", "wel"})
+    @RequestMapping({"/welcome", "/wel"})
     public String welcome() {
         System.out.println("Welcome");
-        return "";
+        return "welcome";
     }
 }
