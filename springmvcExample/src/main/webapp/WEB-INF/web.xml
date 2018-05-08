@@ -5,15 +5,24 @@
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
+    <!--<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>-->
+
     <!--配置springmvc DispatcherServlet-->
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <!-- 手动制定配置文件为  spring-mvc.xml -->
-            <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/spring-mvc.xml</param-value>
-        </init-param>
+        <!--<init-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--其中<param-value>**.xml</param-value> 这里可以使用多种写法-->
+        <!--1、不写,使用默认值:/WEB-INF/<servlet-name>-servlet.xml-->
+        <!--2、<param-value>/WEB-INF/classes/dispatcher-servlet.xml</param-value>-->
+        <!--3、<param-value>classpath*:dispatcher-servlet.xml</param-value>-->
+        <!--4、多个值用逗号分隔-->
+        <!--<param-value>classpath:spring/dispatcher-servlet.xml</param-value>-->
+        <!--</init-param>-->
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
     </servlet>
@@ -22,6 +31,10 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
     <!-- 配置首页 -->
     <welcome-file-list>

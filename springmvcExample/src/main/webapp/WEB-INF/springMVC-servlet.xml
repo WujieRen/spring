@@ -10,4 +10,9 @@
       http://www.springframework.org/schema/mvc
       http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
+    <!-- 配置映射机制：根据控制器Bean的名字将控制器映射到URL-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    <!-- 处理Controller -->
+    <bean name="/hello.action" class="com.example.controller.HelloController" />
+
 </beans>

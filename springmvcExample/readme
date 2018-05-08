@@ -11,6 +11,19 @@ process:
     1.了解Spring MVC架构以及请求流程
     2.环境搭建
         referenceFile_环境搭建.md：https://juejin.im/post/5a66ed0c51882573282192a6
-
+        ①关于<context-param>：如果不给值，默认为applicationContext.xml，找不到则报错。
+        ②关于<servlet>：
+            <init-param>
+                <param-name>contextConfigLocation</param-name>
+                <!--其中<param-value>**.xml</param-value> 这里可以使用多种写法-->
+                <!--1、不写,使用默认值:/WEB-INF/<servlet-name>-servlet.xml-->
+                <!--2、<param-value>/WEB-INF/classes/dispatcher-servlet.xml</param-value>-->
+                <!--3、<param-value>classpath*:dispatcher-servlet.xml</param-value>-->
+                <!--4、多个值用逗号分隔-->
+                <!--<param-value>classpath:spring/dispatcher-servlet.xml</param-value>-->
+            </init-param>
+    3.demo
+        ①根据控制器Bean的名字将控制器映射到URL
+            BeanNameUrlHandlerMapping
 
 
