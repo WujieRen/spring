@@ -27,6 +27,6 @@ process:
             BeanNameUrlHandlerMapping
             SimpleUrlHandlerMapping
             ControllerClassNameHandlerMapping
-
+            DefaultAnnotationHandlerMapping——弃用，改为将请求映射使用@RequestMapping注解的控制器和控制方法
 
 
