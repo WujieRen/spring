@@ -16,14 +16,16 @@
     <!--<bean name="/hello.action" class="com.example.controller.HelloController" />-->
 
     <!-- SimpleUrlHandlerMapping -->
-    <bean id="hi" class="com.example.controller.HelloController" />
+    <!--<bean id="hi" class="com.example.controller.HelloController" />
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
         <property name="urlMap">
             <map>
                 <entry key="/hi.action" value-ref="hi"></entry>
             </map>
         </property>
-    </bean>
+    </bean>-->
 
+    <bean id="message" class="com.example.controller.MessageController" />
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
 </beans>
