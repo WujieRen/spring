@@ -41,3 +41,7 @@ process:
         ④在上个例子的基础上，将参数显示在页面上
             Map<String, Object>【一般不用】
             Model【常用】
+        ⑤使用SpringMVC实现用户列表
+            User
+            HashMap
+            @RequestMapping(value="/userlist", method=RequestMethod.GET)
