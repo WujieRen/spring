@@ -1,0 +1,16 @@
+referenece:
+    Document：
+        ①https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/htmlsingle/
+        ②springmvc-demo\referenceFile\课程九_SpringMVC+MyBatis高级框架技术.pdf
+        ③process_3：https://blog.csdn.net/jsu_9207/article/details/51271799
+        ④process_3.5：https://www.baidu.com/link?url=_QlTe2O95llrgr1xrqTcFJ624ySCvZL_oyVJSO_dT4ktbP6X1ObTVEUZ9H-NivoEMkqdYSA6qR25CGsYO6mIqq&wd=&eqid=b92a891b000588d1000000065af15314
+    Video：
+        http://tpcsc.ibeifeng.com/Job/Job/CourseDetail?id=80339a27-8244-4208-88bd-db5e0e60c49c&productId=d9d5a153-cb44-4361-9729-8ce7ebd2a41f&studyPlanArrangeId=a311a331-5810-40d5-bc3f-aabe1da9b267
+
+process:
+    1.了解Spring MVC架构以及请求流程
+    2.环境搭建
+        referenceFile_环境搭建.md：https://juejin.im/post/5a66ed0c51882573282192a6
+
+
+
