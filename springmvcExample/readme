@@ -25,5 +25,6 @@ process:
     3.demo
         ①根据控制器Bean的名字将控制器映射到URL
             BeanNameUrlHandlerMapping
+            SimpleUrlHandlerMapping
 
 
