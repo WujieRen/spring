@@ -80,6 +80,10 @@ process:
                           model.addAttribute("user", user);
                           return "user/show";
                   }
+        ⑧用户修改
+            Ⅰ注意由GET修改完数据后用POST提交时：
+                URL月逻辑视图的映射要加"redirect:"；
+                且redirect后要跟全路径。
 
 
 

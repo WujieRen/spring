@@ -27,7 +27,7 @@ public class UserController {
 
     @RequestMapping("/list")
     public String list(Model model) {
-            model.addAttribute("users", users);
+        model.addAttribute("users", users);
         return "user/list";
     }
 
@@ -49,5 +49,18 @@ public class UserController {
         User user = users.get(username);
         model.addAttribute("user", user);
         return "user/show";
+    }
+
+    @RequestMapping(value = "/{username}/update", method = RequestMethod.GET)
+    public String update(@PathVariable String username, Model model) {
+        User user = users.get(username);
+        model.addAttribute("user", user);
+        return "user/update";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(User user) {
+        users.put(user.getUsername(), user);
+        return "redirect:/user/list";
     }
 }
