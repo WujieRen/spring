@@ -15,7 +15,7 @@
 <br>
 <a href="/user/add">新增>></a> </br>
 <c:forEach var="user" items="${users}">
-    ${user.value.id} -- ${user.value.username} -- ${user.value.nickname} -- ${user.value.email} <br/>
+    ${user.value.id} -- ${user.value.username} -- ${user.value.nickname} -- ${user.value.email}  <a href="/user/${user.value.username}/show">查看</a>  <br/>
 </c:forEach>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,9 +20,9 @@ public class UserController {
     Map<String, User> users = new HashMap<>();
 
     public UserController() {
-        users.put("rwj", new User(1, "renwujie", "renshuji", "rwj@outlook.com"));
-        users.put("sx", new User(2, "sixin", "sizong", "sx@outlook.com"));
-        users.put("wx", new User(3, "wangxin", "wanglaoban", "wx@outlook.com"));
+        users.put("renwujie", new User(1, "renwujie", "renshuji", "rwj@outlook.com"));
+        users.put("sixin", new User(2, "sixin", "sizong", "sx@outlook.com"));
+        users.put("wangxin", new User(3, "wangxin", "wanglaoban", "wx@outlook.com"));
     }
 
     @RequestMapping("/list")
@@ -41,5 +42,12 @@ public class UserController {
     public String add(User user) {
         users.put(user.getUsername(), user);
         return "redirect:/user/list";
+    }
+
+    @RequestMapping(value = "/{username}/show", method = RequestMethod.GET)
+    public String show(@PathVariable String username, Model model) {
+        User user = users.get(username);
+        model.addAttribute("user", user);
+        return "user/show";
     }
 }

@@ -62,4 +62,26 @@ process:
                         <filter-name>encodingFilter</filter-name>
                         <url-pattern>/*</url-pattern>
                     </filter-mapping>
+        ⑦用户详情展示
+            Ⅰ错误一：
+                HTTP Status 404 – Not Found
+                Type Status Report
+                Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+                Apache Tomcat/8.5.20
+                解析：该错误说明没有找到与给定路径对应的view，一般来说要么是路径出错，要么是请求方式不对。——反正是从访问不到正确网页这个角度去思考就对了。
+            Ⅱ错误二：
+                Model object must not be null
+                解析：该错误是model.addAttribute或者别的方法参数出现了null类型。说明参数传递过程中或获取时出现了错误。
+            Ⅲ注意点：
+                 REST风格访问参数形式、从REST风格的URL中获取参数的方式：
+                 @RequestMapping(value = "/{username}/show", method = RequestMethod.GET)
+                      public String show(@PathVariable String username, Model model) {
+                          User user = users.get(username);
+                          model.addAttribute("user", user);
+                          return "user/show";
+                  }
+
+
+
+
 

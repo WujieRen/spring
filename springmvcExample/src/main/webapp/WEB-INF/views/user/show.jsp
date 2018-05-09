@@ -11,6 +11,6 @@
     <title>显示用户信息</title>
 </head>
 <body>
-${id} -- ${username} -- ${nickname} -- ${email} <br/>
+${user.id} -- ${user.username} -- ${user.nickname} -- ${user.email} <br/>
 </body>
 </html>
