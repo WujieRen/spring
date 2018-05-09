@@ -23,29 +23,29 @@ process:
                 <!--<param-value>classpath:spring/dispatcher-servlet.xml</param-value>-->
             </init-param>
     3.demo
-        ①根据控制器Bean的名字将控制器映射到URL
+        3.1 根据控制器Bean的名字将控制器映射到URL
             BeanNameUrlHandlerMapping
             SimpleUrlHandlerMapping
             ControllerClassNameHandlerMapping
             DefaultAnnotationHandlerMapping——弃用，改为将请求映射使用@RequestMapping注解的控制器和控制方法
-        ②视图解析器
+        3.2 视图解析器
             将逻辑视图的名字与jsp页面进行匹配
             InternalResourceViewResolver
                 在web应用程序的war文件中查找视图模板，视图模板的路径根据加完前缀和后缀的逻辑视图名称来确定
                 prefix
                 suffix
                 【这里可以对比参考pdf中的MVC框架模型来理解。这里用了注解就不用用ModelAndView了，更简便。】
-        ③参数传递
+        3.3 参数传递
            Ⅰ@RequestParam：必须传
            Ⅱ直接通过方法参数传值：可传可不传
-        ④在上个例子的基础上，将参数显示在页面上
+        3.4 在上个例子的基础上，将参数显示在页面上
             Map<String, Object>【一般不用】
             Model【常用】
-        ⑤使用SpringMVC实现用户列表
+        3.5 使用SpringMVC实现用户列表
             User
             HashMap
             @RequestMapping(value="/userlist", method=RequestMethod.GET)
-        ⑥新增用户功能
+        3.6 新增用户功能
             Get
             Post
             在<sf:form>中给定modelAttribute属性时需要增加“ model.addAttribute(new User());”【重点是思路】
@@ -62,7 +62,7 @@ process:
                         <filter-name>encodingFilter</filter-name>
                         <url-pattern>/*</url-pattern>
                     </filter-mapping>
-        ⑦用户详情展示
+        3.7 用户详情展示
             Ⅰ错误一：
                 HTTP Status 404 – Not Found
                 Type Status Report
@@ -80,10 +80,30 @@ process:
                           model.addAttribute("user", user);
                           return "user/show";
                   }
-        ⑧用户修改
+        3.8 用户修改
             Ⅰ注意由GET修改完数据后用POST提交时：
                 URL月逻辑视图的映射要加"redirect:"；
                 且redirect后要跟全路径。
+        3.9 用户删除
+        3.10 SpringMVC验证_JSR-303
+            引包：
+                <dependency>
+                  <groupId>javax.validation</groupId>
+                  <artifactId>validation-api</artifactId>
+                  <version>2.0.1.Final</version>
+                </dependency>
+            添加约束：@NotNull
+            验证：方法参数加@Validate
+            消息绑定：BindingResult
+            消息提示：<sf:errors path="username"/>
+
+            问题：不生效。
+            原因：没有引入hibernate包。
+            解决：
+                https://www.oschina.net/question/2617851_2271229
+                http://www.mkyong.com/spring-mvc/spring-3-mvc-and-jsr303-valid-example/
+
+
 
 
 

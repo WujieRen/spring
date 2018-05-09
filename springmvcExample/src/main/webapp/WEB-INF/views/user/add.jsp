@@ -14,9 +14,9 @@
 <body>
 <sf:form action="/user/add" method="post" modelAttribute="user">
     编号：<sf:input path="id" /> <br/>
-    用户名：<sf:input path="username" /> <br/>
-    昵称：<sf:input path="nickname" /> <br/>
-    email：<sf:input path="email" /> <br/>
+    用户名：<sf:input path="username" /> <sf:errors path="username"/> <br/>
+    昵称：<sf:input path="nickname" /> <sf:errors path="nickname"/> <br/>
+    email：<sf:input path="email" /> <sf:errors path="email"/> <br/>
     <sf:button>确定添加</sf:button>
 </sf:form>
 </body>

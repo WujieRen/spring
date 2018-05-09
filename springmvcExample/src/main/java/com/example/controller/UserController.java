@@ -3,10 +3,12 @@ package com.example.controller;
 import com.example.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +41,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(User user) {
+    public String add(@Valid User user, BindingResult br) {
+        //@NotNull验证
+        if(br.hasErrors()) {
+            return "/user/add";
+        }
         users.put(user.getUsername(), user);
         return "redirect:/user/list";
     }
@@ -61,6 +67,12 @@ public class UserController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(User user) {
         users.put(user.getUsername(), user);
+        return "redirect:/user/list";
+    }
+
+    @RequestMapping("/{username}/delete")
+    public String delete(@PathVariable String username) {
+        users.remove(username);
         return "redirect:/user/list";
     }
 }
