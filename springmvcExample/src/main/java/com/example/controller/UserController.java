@@ -1,14 +1,19 @@
 package com.example.controller;
 
 import com.example.pojo.User;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +46,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@Valid User user, BindingResult br) {
+    public String add(@Valid User user, BindingResult br, HttpSession session, MultipartFile photo) throws IOException {
+        String path = session.getServletContext().getRealPath("/statics/upload/");
+        String filename = photo.getOriginalFilename();
+        File file = new File(path+filename);
+        FileUtils.copyInputStreamToFile(photo.getInputStream(), file);
+
         //@NotNull验证
         if(br.hasErrors()) {
             return "/user/add";

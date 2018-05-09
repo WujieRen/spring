@@ -4,6 +4,7 @@ referenece:
         ②springmvc-demo\referenceFile\课程九_SpringMVC+MyBatis高级框架技术.pdf
         ③process_3：https://blog.csdn.net/jsu_9207/article/details/51271799
         ④process_3.5：https://www.baidu.com/link?url=_QlTe2O95llrgr1xrqTcFJ624ySCvZL_oyVJSO_dT4ktbP6X1ObTVEUZ9H-NivoEMkqdYSA6qR25CGsYO6mIqq&wd=&eqid=b92a891b000588d1000000065af15314
+        ⑤process_3.15：https://blog.csdn.net/u012660464/article/details/53434331
     Video：
         http://tpcsc.ibeifeng.com/Job/Job/CourseDetail?id=80339a27-8244-4208-88bd-db5e0e60c49c&productId=d9d5a153-cb44-4361-9729-8ce7ebd2a41f&studyPlanArrangeId=a311a331-5810-40d5-bc3f-aabe1da9b267
 
@@ -120,7 +121,22 @@ process:
         3.13 数据保存到session
             第一种：直接用HeepSession
             第二种：用@SessionAttributes({"curUser"})
-
+        3.14 静态资源处理
+            .xml：<mvc:resources mapping="/statics/**" location="/WEB-INF/statics/" />
+            .jsp：<link rel="stylesheet" type="text/css" href="/statics/css/style.css" />
+        3.15 单文件上传
+            reference: https://blog.csdn.net/u012660464/article/details/53434331
+            添加maven依赖和.xml解析器
+                <!-- 文件上传 -->
+                <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+                    <property name="maxUploadSize" value="1024000000"/>
+                    <property name="defaultEncoding" value="UTF-8" />
+                    <property name="resolveLazily" value="true" />
+                </bean>
+            添加文件域
+            增加属性enctype
+            方法上添加参数
+            文件上传
 
 
 
