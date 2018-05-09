@@ -108,7 +108,15 @@ process:
                 方法中的参数就是捕获的异常对象
                 方法中定义对错误如何进行处理
             在需要的地方抛出
-
+        3.12 全局异常
+            <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+                <property name="exceptionMappings">
+                    <props>
+                        <prop key="UserException">inc/error</prop>
+                        <!--<prop key="UserException">inc/error</prop>-->
+                    </props>
+                </property>
+            </bean>
 
 
 

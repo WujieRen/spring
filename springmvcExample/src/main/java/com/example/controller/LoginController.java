@@ -2,8 +2,6 @@ package com.example.controller;
 
 import com.example.exception.UserException;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,9 +29,10 @@ public class LoginController {
         return "redirect:user/list";
     }
 
-    @ExceptionHandler(UserException.class)
+    //局部异常
+    /*@ExceptionHandler(UserException.class)
     public String handlerException(UserException ex, Model model) {
         model.addAttribute("ex", ex);
         return "inc/error";
-    }
+    }*/
 }

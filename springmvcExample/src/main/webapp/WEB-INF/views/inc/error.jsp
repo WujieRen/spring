@@ -11,6 +11,7 @@
     <title>错误页面</title>
 </head>
 <body>
-<h2>错误信息：${ex.message}</h2>
+<h2>局部异常：${ex.message}</h2>
+<h2>全局异常：${exception.message}</h2>
 </body>
 </html>
