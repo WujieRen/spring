@@ -75,4 +75,5 @@ public class UserController {
         users.remove(username);
         return "redirect:/user/list";
     }
+
 }

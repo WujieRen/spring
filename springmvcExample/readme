@@ -102,6 +102,13 @@ process:
             解决：
                 https://www.oschina.net/question/2617851_2271229
                 http://www.mkyong.com/spring-mvc/spring-3-mvc-and-jsr303-valid-example/
+        3.11 局部异常处理
+            创建异常类
+            定义@ExceptionHandler(SelfException.class)
+                方法中的参数就是捕获的异常对象
+                方法中定义对错误如何进行处理
+            在需要的地方抛出
+
 
 
 
