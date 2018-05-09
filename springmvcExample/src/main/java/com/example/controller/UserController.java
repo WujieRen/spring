@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -46,11 +47,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@Valid User user, BindingResult br, HttpSession session, MultipartFile photo) throws IOException {
-        String path = session.getServletContext().getRealPath("/statics/upload/");
-        String filename = photo.getOriginalFilename();
-        File file = new File(path+filename);
-        FileUtils.copyInputStreamToFile(photo.getInputStream(), file);
+   /* public String add(@Valid User user, BindingResult br, HttpSession session, MultipartFile photo) throws IOException {*/
+    public String add(@Valid User user, BindingResult br, HttpSession session, @RequestParam("photo") MultipartFile[] photoes) throws IOException {
+        for(MultipartFile photo : photoes) {
+            if (photo.isEmpty()) continue;//注意排除文件为空的情况
+            String path = session.getServletContext().getRealPath("/statics/upload/");
+            String filename = photo.getOriginalFilename();
+            File file = new File(path+filename);
+            FileUtils.copyInputStreamToFile(photo.getInputStream(), file);
+        }
 
         //@NotNull验证
         if(br.hasErrors()) {

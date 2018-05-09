@@ -19,6 +19,8 @@
     昵称：<sf:input path="nickname" /> <sf:errors path="nickname"/> <br/>
     email：<sf:input path="email" /> <sf:errors path="email"/> <br/>
     <input type="file" name="photo" /> <br/>
+    <input type="file" name="photo" /> <br/>
+    <input type="file" name="photo" /> <br/>
     <sf:button>确定添加用户</sf:button>
 </sf:form>
 </body>
