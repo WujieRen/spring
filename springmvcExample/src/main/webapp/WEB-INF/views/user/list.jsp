@@ -12,7 +12,8 @@
 <head>
     <title>userList</title>
 </head>
-<body>
+<br>
+<a href="/user/add">新增>></a> </br>
 <c:forEach var="user" items="${users}">
     ${user.value.id} -- ${user.value.username} -- ${user.value.nickname} -- ${user.value.email} <br/>
 </c:forEach>
