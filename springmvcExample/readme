@@ -140,6 +140,9 @@ process:
         3.16多文件上传
             @RequestParam("photo") MultipartFile[] photoes
             注意排除文件为空的情况：if (photo.isEmpty()) continue;
+        3.17返回json数据
+            引包
+            @ResponseBody
 
 
 
