@@ -51,4 +51,6 @@
         </property>
     </bean>
 
+    <!-- 静态资源处理 -->
+    <mvc:resources mapping="/statics/**" location="/WEB-INF/statics/" />
 </beans>

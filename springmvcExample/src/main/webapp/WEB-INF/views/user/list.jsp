@@ -9,10 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
+
 <head>
     <title>userList</title>
+    <link rel="stylesheet" type="text/css" href="/statics/css/style.css" />
 </head>
 <br>
+<h1>欢迎【${curUser}】登录!</h1>
 <a href="/user/add">新增>></a> </br>
 <c:forEach var="user" items="${users}">
     ${user.value.id} -- ${user.value.username} -- ${user.value.nickname} -- ${user.value.email}
