@@ -42,6 +42,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 全局异常 -->
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>

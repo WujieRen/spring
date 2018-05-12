@@ -29,6 +29,8 @@ process:
             SimpleUrlHandlerMapping
             ControllerClassNameHandlerMapping
             DefaultAnnotationHandlerMapping——弃用，改为将请求映射使用@RequestMapping注解的控制器和控制方法
+                <!-- 记得开启业务组建Annotation -->
+                <context:component-scan base-package="com.example.controller"/>
         3.2 视图解析器
             将逻辑视图的名字与jsp页面进行匹配
             InternalResourceViewResolver
@@ -52,17 +54,17 @@ process:
             在<sf:form>中给定modelAttribute属性时需要增加“ model.addAttribute(new User());”【重点是思路】
             字符乱码控制：
                 <filter>
-                        <filter-name>encodingFilter</filter-name>
-                        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-                        <init-param>
-                            <param-name>encoding</param-name>
-                            <param-value>utf-8</param-value>
-                        </init-param>
-                    </filter>
-                    <filter-mapping>
-                        <filter-name>encodingFilter</filter-name>
-                        <url-pattern>/*</url-pattern>
-                    </filter-mapping>
+                    <filter-name>encodingFilter</filter-name>
+                    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+                    <init-param>
+                        <param-name>encoding</param-name>
+                        <param-value>utf-8</param-value>
+                    </init-param>
+                </filter>
+                <filter-mapping>
+                    <filter-name>encodingFilter</filter-name>
+                    <url-pattern>/*</url-pattern>
+                </filter-mapping>
         3.7 用户详情展示
             Ⅰ错误一：
                 HTTP Status 404 – Not Found
@@ -83,18 +85,24 @@ process:
                   }
         3.8 用户修改
             Ⅰ注意由GET修改完数据后用POST提交时：
-                URL月逻辑视图的映射要加"redirect:"；
+                URL与逻辑视图的映射要加"redirect:"；
                 且redirect后要跟全路径。
         3.9 用户删除
         3.10 SpringMVC验证_JSR-303
             引包：
+                <!-- 数据验证 -->
                 <dependency>
-                  <groupId>javax.validation</groupId>
-                  <artifactId>validation-api</artifactId>
-                  <version>2.0.1.Final</version>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                    <version>5.0.2.Final</version>
+                </dependency>
+                <dependency>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                    <version>2.0.1.Final</version>
                 </dependency>
             添加约束：@NotNull
-            验证：方法参数加@Validate
+            验证：方法参数加@Valid
             消息绑定：BindingResult
             消息提示：<sf:errors path="username"/>
 
@@ -105,10 +113,10 @@ process:
                 http://www.mkyong.com/spring-mvc/spring-3-mvc-and-jsr303-valid-example/
         3.11 局部异常处理
             创建异常类
+            在需要的地方抛出
             定义@ExceptionHandler(SelfException.class)
                 方法中的参数就是捕获的异常对象
                 方法中定义对错误如何进行处理
-            在需要的地方抛出
         3.12 全局异常
             <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
                 <property name="exceptionMappings">
