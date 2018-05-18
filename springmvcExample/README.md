@@ -31,10 +31,10 @@
     - SimpleUrlHandlerMapping
     - ControllerClassNameHandlerMapping
     - DefaultAnnotationHandlerMapping——弃用，改为将请求映射使用@RequestMapping注解的控制器和控制方法
-```xml
-<!-- 记得开启业务组建Annotation -->
-<context:component-scan base-package="com.example.controller"/>
-``` 
+        ```xml
+        <!-- 记得开启业务组建Annotation -->
+        <context:component-scan base-package="com.example.controller"/>
+        ``` 
   - 3.2 视图解析器
     - 将逻辑视图的名字与jsp页面进行匹配
     - InternalResourceViewResolver
