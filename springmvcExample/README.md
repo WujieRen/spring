@@ -134,7 +134,7 @@
                 </bean>
     ```        
   - 3.13 数据保存到session
-    - 第一种：直接用HeepSession
+    - 第一种：直接用HttpSession
     - 第二种：用@SessionAttributes({"curUser"})
   - 3.14 静态资源处理
     - .xml：<mvc:resources mapping="/statics/**" location="/WEB-INF/statics/" />
@@ -162,8 +162,13 @@
     - @ResponseBody
 
 
-
-
+# 从零开始实现spring（一）最简单的IOC
+1. web编程：jsp + servlet -> SSH -> SSM（实现分布式架构，前后分离）
+2. applicationContext.xml中的bean的本质是什么呢？
+  - 简单说，就是从xml文件中读取到bean的定义，spring的bean工厂基于此定义进行bean的创建和装配。然后我们就能轻松地通过getBean()获得实例化的对象，再进一步抽象，就是将一段字符串转化为一个对象实例。
+  - 熟悉反射的人可能就能想到了，这不挺像类的反射么，给出类路径获取Class，再使用newInstance获取对象。
+  - 没错Spring的对象创建就是大量的使用了反射的方式。
+3. demo：一个简单的IOC
 
 
 

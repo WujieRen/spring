@@ -13,7 +13,8 @@
 </head>
 <body>
 <%-- 文件域，即上传文件时一定记得加enctype属性 --%>
-<sf:form action="/user/add" method="post" modelAttribute="user" enctype="multipart/form-data">
+<%--<sf:form action="/user/add" method="post" modelAttribute="user" enctype="multipart/form-data">--%>
+<sf:form action="/user/upload" method="post" modelAttribute="user" enctype="multipart/form-data">
     编号：<sf:input path="id" /> <br/>
     用户名：<sf:input path="username" /> <sf:errors path="username"/> <br/>
     昵称：<sf:input path="nickname" /> <sf:errors path="nickname"/> <br/>
